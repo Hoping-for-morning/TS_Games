@@ -1,9 +1,47 @@
-# Vue 3 + TypeScript + Vite
+## 前端项目初始化
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+#### 使用脚手架初始化项目
+- Vue CLI https://cli.vuejs.org/guide/#cli
+- Vite 脚手架 https://cn.vitejs.dev/guide/
+    ```
+    pnpm create vite
+    ```
+#### 整合组件库 Vant：
+- 安装 Vant
+    ```
+    pnpm add vant
+    ```
+- 按需引入
+    ```
+    pnpm add @vant/auto-import-resolver unplugin-vue-components unplugin-auto-import -D
+    ```
+#### 开发页面经验
 
-## Recommended Setup
+1. 多参考
+2. 从整体到局部
+3. 先想清楚页面是什么样子
+4. 从小的屏幕去设计
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
 
-- Use [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc) for performing the same type checking from the command line, or for generating d.ts files for SFCs.
+## 前端主页 + 组件概览
+
+### 设计
+
+导航条：显示当前页面的名称
+
+主页搜索框 
+
+内容：
+
+tab 栏：
+ - 主页（推荐页 + **广告**）
+   - 搜索框
+   - banner
+   - 推荐信息流
+ - 队伍页
+ - 用户页
+   - 消息
+  
+### 开发
+
+很多页面要复用组件、样式，不利于维护，所以要抽象一个通用的布局（Layout）

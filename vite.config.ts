@@ -2,7 +2,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { VantResolver, VantImports } from '@vant/auto-import-resolver'
+import { VantResolver } from '@vant/auto-import-resolver'
+import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,11 +11,26 @@ export default defineConfig({
     vue(),
     // 自动按需引入 Vant 配置
     AutoImport({
-      imports: [VantImports()],
+      imports: ["vue", "vue-router", "pinia"],
+
+      // eslint 报错解决
+      eslintrc: {
+        enabled: false,
+        filepath: './.eslintrc-auto-import.json',
+        globalsPropValue: true,
+      },
+
       resolvers: [VantResolver()],
+
+      dts: true
     }),
     Components({
       resolvers: [VantResolver()],
     }),
   ],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+  },
 })

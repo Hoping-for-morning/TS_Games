@@ -3,7 +3,9 @@ import BasicLayout from "./layouts/BasicLayout.vue"
 </script>
 
 <template>
-  <BasicLayout></BasicLayout>
+  <div> 
+    <BasicLayout></BasicLayout>
+  </div>
 </template>
 
 <style scoped>
